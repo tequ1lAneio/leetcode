@@ -4,6 +4,8 @@
  * @return {number[]}
  */
 
+const data = [0,4,3,0]
+
 var twoSum = function(nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length; j++) {
@@ -14,4 +16,4 @@ var twoSum = function(nums, target) {
   }
 };
 
-console.log(twoSum([0,4,3,0], 0))
+console.log(twoSum(data, 0))
