@@ -39,5 +39,22 @@ nums = [3,2,1]
 // };
 
 const constructMaximumBinaryTree = (nums) => {
-  const
+  const stack = []
+  const tree = []
+
+  for (let i = 0; i < nums.length; i++) {
+    tree[i] = new TreeNode(nums[i])
+    while (stack.length && nums[i] > nums[stack[stack.length - 1]]) {
+      tree[i].left = tree[stack[stack.length - 1]]
+      stack.pop()
+    }
+
+    if (stack.length) {
+      tree[stack[stack.length - 1]].right = tree[i]
+    }
+
+    stack.push(i)
+  }
+
+  return stack.shift()
 }
