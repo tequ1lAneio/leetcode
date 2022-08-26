@@ -26,9 +26,29 @@ startTime = [9,8,7,6,5,4,3,2,1], endTime = [10,10,10,10,10,10,10,10,10], queryTi
 //   return count
 // }
 
+// Differential array
 const busyStudent = (startTime, endTime, queryTime) => {
+  let ans = 0
+  const maxEndTime = Math.max(...endTime)
 
-  return count
+  if (maxEndTime < queryTime) {
+    return ans
+  }
+
+  const count = new Array(maxEndTime + 2).fill(0)
+  for (let i = 0; i < endTime.length; i++) {
+    count[startTime[i]]++
+    count[endTime[i] + 1]--
+  }
+
+  for (let i = 0; i <= queryTime; i++) {
+    ans += count[i]
+  }
+
+  return ans
 }
+
+
+
 
 console.log(busyStudent(startTime, endTime, queryTime))
