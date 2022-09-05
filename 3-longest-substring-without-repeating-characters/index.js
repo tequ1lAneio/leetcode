@@ -13,4 +13,3 @@ const lengthOfLongestSubstring = function(s) {
 
   }
 };
-
