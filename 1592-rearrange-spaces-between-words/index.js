@@ -57,7 +57,7 @@ text = "  hello"
 //   return ans
 // }
 
-// official
+// double pointer
 
 
 

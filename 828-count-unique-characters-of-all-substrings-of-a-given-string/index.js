@@ -25,8 +25,6 @@ const uniqueLetterString = (s) => {
     indexes.push(s.length)
 
     for (let i = 1; i < indexes.length - 1; i++) {
-      // 为什么这个公式能成立没讲清楚，可以看成是左右两边的子串进行拼接，右边含有当前独苗字符，左边不含，
-      // 符合条件的子串有： count = (len - cur) + (len - cur)*(cur - 1 - pre)=(len - cur)*(cur - pre)
       ans += (indexes[i] - indexes[i - 1]) * (indexes[i + 1] - indexes[i])
     }
   }
