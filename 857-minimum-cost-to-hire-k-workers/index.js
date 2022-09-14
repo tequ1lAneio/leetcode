@@ -25,14 +25,14 @@ function mincostToHireWorkers(quality, wage, k) {
 
   for (let i = k - 1; i < n; i++) {
     let idx = indexes[i];
-    totalQuality += quality[idx];
-    queue.enqueue(quality[idx]);
-    const totalc = (wage[idx] / quality[idx]) * totalQuality;
-    ans = Math.min(ans, totalc);
-    totalQuality -= queue.dequeue().element;
+    totalQuality += quality[idx]
+    queue.enqueue(quality[idx])
+    const totalc = (wage[idx] / quality[idx]) * totalQuality
+    ans = Math.min(ans, totalc)
+    totalQuality -= queue.dequeue().element
   }
 
   return ans
-};
+}
 
 console.log(mincostToHireWorkers(quality, wage, k))
