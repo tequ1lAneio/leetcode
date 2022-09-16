@@ -6,7 +6,8 @@
 
 let num
 num = 2736
-// num = 9973
+num = 9973
+num = 98368
 
 // const maximumSwap = (num) => {
 //   let ans = num
@@ -25,22 +26,25 @@ num = 2736
 
 // greedy
 const maximumSwap = num => {
-  let ans = num
   let arr = [...('' + num)]
-  let max = [-1, 0]
-
+  let maxIdx = arr.length - 1
+  let idxToUpdate = -1
+  let targetIdx = -1
   for (let i = arr.length - 1; i >= 0; i--) {
-    const val = parseInt(arr[i])
-    if (val > max[1]) {
-      max[0] = i
-      max[1] = val
+    if (arr[maxIdx] < arr[i]) {
+      maxIdx = i
+    } else if (arr[maxIdx] > arr[i]) {
+      idxToUpdate = i
+      targetIdx = maxIdx
     }
   }
 
-  if (max[0] === 0) {
-    return
+  if (idxToUpdate > -1) {
+    [arr[idxToUpdate], arr[targetIdx]] = [arr[targetIdx], arr[idxToUpdate]]
+    return parseInt(arr.join(''))
+  } else {
+    return num
   }
-
 }
 
 console.log(maximumSwap(num))
