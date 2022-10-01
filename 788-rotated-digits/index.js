@@ -3,6 +3,8 @@
  * @return {number}
  */
 
+const n = 159
+
 // const rotatedDigits = (n) => {
 //   const checker = [0, 0, 1, -1, -1, 1, 1, -1, 0, 1]
 //   let ans = 0
@@ -32,9 +34,20 @@
 // dp
 const rotatedDigits = n => {
   const checker = [0, 0, 1, -1, -1, 1, 1, -1, 0, 1]
-  let ans = 0
+  let digit = []
 
+  while (n > 0) {
+    digit.push(n % 10)
+    n = Math.floor(n / 10)
+  }
 
+  digit = _.reverse(digit)
 
-  return ans
+  const dfs = (pos, bound, diff) => {
+
+  }
+
+  return dfs(0, 1, 0)
 }
+
+console.log(rotatedDigits(n))
