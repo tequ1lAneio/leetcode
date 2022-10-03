@@ -12,17 +12,17 @@ function OrderedStream(n) {
  * @return {string[]}
  */
 // OrderedStream.prototype.insert = function(idKey, value) {
-//   const index = idKey - 1
-//   this.elements[index] = value
+//   const index.js = idKey - 1
+//   this.elements[index.js] = value
 //
 //   if (idKey > this.elements.length) {
 //     return []
 //   }
 //
-//   if (this.ptr === index) {
+//   if (this.ptr === index.js) {
 //     const res = []
 //
-//     for (let i = index; i < this.elements.length && this.elements[i]; i++) {
+//     for (let i = index.js; i < this.elements.length && this.elements[i]; i++) {
 //       res.push(this.elements[i])
 //       ++this.ptr
 //     }
