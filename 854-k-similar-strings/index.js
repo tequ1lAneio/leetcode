@@ -16,6 +16,16 @@ const swap = (cur, i, j) => {
   return arr.join('')
 }
 
+const minSwap = (str1, str2, pos) => {
+  let total = 0
+  for (let i = pos; i < str1.length; i++) {
+    if (str1[i] !== str2[i]) {
+      total++
+    }
+  }
+  return Math.floor((total + 1) / 2)
+}
+
 // bfs
 // const kSimilarity = (s1, s2) => {
 //   const n = s1.length
@@ -102,17 +112,6 @@ const kSimilarity = (s1, s2) => {
         dfs(pos + 1, cost + 1, next, str2)
       }
     }
-  }
-
-  const minSwap = (str1, str2, pos) => {
-    let total = 0
-    for (let i = pos; i < str1.length; i++) {
-      if (str1[i] !== str2[i]) {
-        total++
-      }
-    }
-
-    return Math.floor((total + 1) / 2)
   }
 
   dfs(0, 0, str1, str2)
