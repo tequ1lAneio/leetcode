@@ -30,7 +30,6 @@ const atMostNGivenDigitSet = function(digits, n) {
 
     if (i > 1) {
       dp[i][0] += m + m * dp[i - 1][0]
-
     }
   }
 
