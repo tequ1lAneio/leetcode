@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .row {
+            margin-bottom: 4px;
+        }
+
+        .label {
+            padding: 4px 8px;
+            background: lightgray;
+            border-radius: 5px;
+            margin: 0 4px 4px 0;
+        }
+
+        .label.active {
+            background: darkcyan;
+        }
+
+        .container {
+            border: 2px solid grey;
+            border-radius: 5px;
+            min-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <div class="row">
+        <input type="text" v-model="prefix">
+    </div>
+    <div class="row">
+        <div
+             class="label"
+             :class="{ active: label.selected }"
+             v-for="label in labels"
+             @click="selectLabel(label.id)"
+        >
+            {{ label.text }}
+        </divO>
+    </div>
+    <div class="row">
+        <button @click="generate">生成结果</button>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div v-if="prefix">{{ prefix }}</div>
+            <div v-for="item in res">{{ item }}</div>
+        </div>
+    </div>
+</div>
+
+<script>
+  const BY_AREA = '分地域'
+
+  const labels = [
+    { id: 0, text: '环比', selected: false },
+    { id: 1, text: '同比', selected: false },
+    { id: 2, text: '占比', selected: false },
+    { id: 3, text: '排名', selected: false },
+    { id: 4, text: '变化趋势', selected: false },
+    { id: 5, text: '排行', selected: false, cb: (pre) => `分地域${pre}排行` }, // cb返回值想写什么写什么，直接写个字符串都行，参数也可以随意定义
+    { id: 6, text: '分布', selected: false, cb: (pre) => `分地域${pre}分布` }
+  ]
+</script>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script type="module">
+  import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+  createApp({
+    data() {
+      return {
+        prefix: '',
+        labels,
+        res: [],
+        groups: []
+      }
+    },
+    methods: {
+      selectLabel(id) {
+        const label = this.labels.find(l => l.id === id)
+        label.selected = !label.selected
+      },
+      generate() {
+        this.res = labels
+          .filter(l => l.selected)
+          .map(l => {
+            return l.cb ? l.cb(this.prefix) : `${this.prefix}${l.text}`
+          })
+      }
+    },
+  }).mount('#app')
+</script>
+</body>
+</html>
