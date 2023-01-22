@@ -99,9 +99,9 @@ MyLinkedList.prototype.deleteAtIndex = function(index) {
 /**
  * Your MyLinkedList object will be instantiated and called as such:
  * var obj = new MyLinkedList()
- * var param_1 = obj.get(index.js)
+ * var param_1 = obj.get(index.js.js)
  * obj.addAtHead(val)
  * obj.addAtTail(val)
- * obj.addAtIndex(index.js,val)
- * obj.deleteAtIndex(index.js)
+ * obj.addAtIndex(index.js.js,val)
+ * obj.deleteAtIndex(index.js.js)
  */

@@ -35,13 +35,13 @@ root = [1,3,2,5]
 //
 //       for (let i = 0; i < n; i++) {
 //         const t = queue.shift()
-//         const [node, index.js] = t
+//         const [node, index.js.js] = t
 //
 //         if (node.left) {
-//           queue.push([node.left, index.js * 2n])
+//           queue.push([node.left, index.js.js * 2n])
 //         }
 //         if (node.right) {
-//           queue.push([node.right, index.js * 2n + 1n])
+//           queue.push([node.right, index.js.js * 2n + 1n])
 //         }
 //       }
 //     }
